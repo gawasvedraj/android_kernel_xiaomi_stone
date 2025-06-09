@@ -789,8 +789,8 @@ KBUILD_CFLAGS	+= -mllvm -polly \
 endif
 
 # Optimize for holi's little cpu
-KBUILD_CFLAGS += -mcpu=cortex-a55
-KBUILD_AFLAGS += -mcpu=cortex-a55
+KBUILD_CFLAGS += -mcpu=cortex-a55 -mtune=cortex-a76
+KBUILD_AFLAGS += -mcpu=cortex-a55 -mtune=cortex-a76
 
 # Tell gcc to never replace conditional load with a non-conditional one
 KBUILD_CFLAGS	+= $(call cc-option,--param=allow-store-data-races=0)
