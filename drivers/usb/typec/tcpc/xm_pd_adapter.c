@@ -42,8 +42,6 @@
 #include "inc/xm_adapter_class.h"
 #include "inc/tcpm.h"
 
-#include <linux/quiet_logs.h>
-
 #define PROBE_CNT_MAX	10
 static int log_level = 2;
 int get_apdo_regain;
@@ -65,6 +63,11 @@ do {										\
 	if (log_level >= 2)							\
 		printk(KERN_ERR "[xm_pd_adapter] " fmt, ##__VA_ARGS__);	\
 } while (0)
+
+#undef adapter_err
+#undef adapter_info
+#undef adapter_dbg
+#include <linux/quiet_logs.h>
 
 struct xm_pd_adapter_info {
 	struct tcpc_device *tcpc;

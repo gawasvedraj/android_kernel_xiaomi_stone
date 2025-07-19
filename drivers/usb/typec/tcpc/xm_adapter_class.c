@@ -13,8 +13,6 @@
 #include "inc/xm_adapter_class.h"
 #include "inc/tcpci_config.h"
 
-#include <linux/quiet_logs.h>
-
 static struct class *adapter_class;
 static int log_level = 2;
 
@@ -35,6 +33,11 @@ do {										\
 	if (log_level >= 2)							\
 		printk(KERN_ERR "[xm_adapter_class] " fmt, ##__VA_ARGS__);	\
 } while (0)
+
+#undef class_err
+#undef class_info
+#undef class_dbg
+#include <linux/quiet_logs.h>
 
 static const char * const usbpd_state_strings[] = {
 	"UNKNOWN",
