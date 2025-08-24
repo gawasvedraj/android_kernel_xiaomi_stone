@@ -95,6 +95,8 @@ extern void dissolve_on_fput(struct vfsmount *);
  */
 extern void chroot_fs_refs(const struct path *, const struct path *);
 
+int path_umount(struct path *path, int flags);
+
 /*
  * file_table.c
  */
